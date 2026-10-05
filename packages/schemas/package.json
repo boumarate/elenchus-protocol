@@ -1,0 +1,12 @@
+{
+  "name": "@elenchus-protocol/schemas",
+  "version": "0.1.0",
+  "description": "JSON Schemas for claims (manuscripts) and structured reviews.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./claim": "./claim.schema.json",
+    "./review": "./review.schema.json"
+  },
+  "files": ["*.schema.json"]
+}

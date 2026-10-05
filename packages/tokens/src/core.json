@@ -1,0 +1,266 @@
+{
+  "$description": "Elenchus design tokens: primitives and theme-independent values. Format follows the W3C Design Tokens (DTCG) draft: $value, $type, $description. References use {path.to.token}.",
+
+  "palette": {
+    "$description": "Raw color scales. Never use these directly in components; use semantic color tokens instead.",
+    "ink": {
+      "$type": "color",
+      "$description": "Green-tinged neutral for dark surfaces. ink.0 is the base, sampled from the bio.xyz theme-color (#070906). All other steps are Elenchus's own.",
+      "0":   { "$value": "#070906" },
+      "50":  { "$value": "#0C100B" },
+      "100": { "$value": "#121711" },
+      "200": { "$value": "#1A2019" },
+      "300": { "$value": "#252C23" },
+      "400": { "$value": "#343D32" },
+      "500": { "$value": "#4C5749" },
+      "600": { "$value": "#6B7868" },
+      "700": { "$value": "#8E9B8B" },
+      "800": { "$value": "#B4BFB1" },
+      "900": { "$value": "#D6DED3" },
+      "950": { "$value": "#EEF2EC" }
+    },
+    "bone": {
+      "$type": "color",
+      "$description": "Warm-neutral paper tones for the light theme.",
+      "50":  { "$value": "#FBFCF9" },
+      "100": { "$value": "#F3F5EF" },
+      "200": { "$value": "#E8ECE2" },
+      "300": { "$value": "#D5DBCC" },
+      "400": { "$value": "#B9C2AE" },
+      "600": { "$value": "#5C6757" },
+      "800": { "$value": "#2B3328" },
+      "900": { "$value": "#171C15" }
+    },
+    "verdigris": {
+      "$type": "color",
+      "$description": "Primary accent. Oxidised-copper green: calm and scientific rather than neon.",
+      "300": { "$value": "#8FE0C0" },
+      "400": { "$value": "#5FCBA4" },
+      "500": { "$value": "#3DB38A" },
+      "600": { "$value": "#2A9171" },
+      "700": { "$value": "#1F7058" },
+      "900": { "$value": "#0F3A2E" }
+    },
+    "cobalt": {
+      "$type": "color",
+      "$description": "Examination in progress.",
+      "300": { "$value": "#A5C8FF" },
+      "400": { "$value": "#6EA8FE" },
+      "600": { "$value": "#2F5DB8" },
+      "800": { "$value": "#1F3F85" }
+    },
+    "amber": {
+      "$type": "color",
+      "$description": "Contested claims, caution.",
+      "300": { "$value": "#F3D27E" },
+      "400": { "$value": "#E8B84A" },
+      "600": { "$value": "#8F5F08" },
+      "800": { "$value": "#5E4006" }
+    },
+    "madder": {
+      "$type": "color",
+      "$description": "Refuted claims, slashing, destructive actions.",
+      "300": { "$value": "#F8A3A2" },
+      "400": { "$value": "#F0605F" },
+      "600": { "$value": "#B83232" },
+      "800": { "$value": "#7A1F1F" }
+    }
+  },
+
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "ui":    { "$value": "'Schibsted Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif", "$description": "Interface text: navigation, forms, tables." },
+      "prose": { "$value": "'Newsreader', 'Iowan Old Style', Georgia, 'Times New Roman', serif", "$description": "Long-form reading: manuscripts, review bodies, documentation." },
+      "mono":  { "$value": "'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace", "$description": "Hashes, CIDs, wallet addresses, contract IDs." }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "regular":  { "$value": 400 },
+      "medium":   { "$value": 500 },
+      "semibold": { "$value": 600 }
+    },
+    "size": {
+      "$type": "dimension",
+      "$description": "Minor-third-ish scale anchored on 1rem.",
+      "2xs": { "$value": "0.75rem" },
+      "xs":  { "$value": "0.8125rem" },
+      "sm":  { "$value": "0.875rem" },
+      "md":  { "$value": "1rem" },
+      "lg":  { "$value": "1.125rem" },
+      "xl":  { "$value": "1.375rem" },
+      "2xl": { "$value": "1.75rem" },
+      "3xl": { "$value": "2.25rem" },
+      "4xl": { "$value": "3rem" },
+      "5xl": { "$value": "3.75rem" }
+    },
+    "leading": {
+      "$type": "number",
+      "tight":   { "$value": 1.1 },
+      "snug":    { "$value": 1.25 },
+      "normal":  { "$value": 1.5 },
+      "reading": { "$value": 1.65, "$description": "Serif prose gets extra leading." }
+    },
+    "tracking": {
+      "$type": "dimension",
+      "tight":  { "$value": "-0.02em" },
+      "normal": { "$value": "0em" },
+      "wide":   { "$value": "0.02em" }
+    }
+  },
+
+  "text": {
+    "$description": "Composed text styles. Each style is a set of leaf tokens (family, size, weight, leading, tracking).",
+    "display": {
+      "family":   { "$value": "{font.family.prose}",    "$type": "fontFamily" },
+      "size":     { "$value": "{font.size.5xl}",        "$type": "dimension" },
+      "weight":   { "$value": "{font.weight.regular}",  "$type": "fontWeight" },
+      "leading":  { "$value": "{font.leading.tight}",   "$type": "number" },
+      "tracking": { "$value": "{font.tracking.tight}",  "$type": "dimension" }
+    },
+    "h1": {
+      "family":   { "$value": "{font.family.prose}",    "$type": "fontFamily" },
+      "size":     { "$value": "{font.size.4xl}",        "$type": "dimension" },
+      "weight":   { "$value": "{font.weight.regular}",  "$type": "fontWeight" },
+      "leading":  { "$value": "{font.leading.tight}",   "$type": "number" },
+      "tracking": { "$value": "{font.tracking.tight}",  "$type": "dimension" }
+    },
+    "h2": {
+      "family":   { "$value": "{font.family.prose}",    "$type": "fontFamily" },
+      "size":     { "$value": "{font.size.3xl}",        "$type": "dimension" },
+      "weight":   { "$value": "{font.weight.regular}",  "$type": "fontWeight" },
+      "leading":  { "$value": "{font.leading.snug}",    "$type": "number" },
+      "tracking": { "$value": "{font.tracking.tight}",  "$type": "dimension" }
+    },
+    "h3": {
+      "family":   { "$value": "{font.family.ui}",       "$type": "fontFamily" },
+      "size":     { "$value": "{font.size.xl}",         "$type": "dimension" },
+      "weight":   { "$value": "{font.weight.semibold}", "$type": "fontWeight" },
+      "leading":  { "$value": "{font.leading.snug}",    "$type": "number" },
+      "tracking": { "$value": "{font.tracking.normal}", "$type": "dimension" }
+    },
+    "body": {
+      "family":   { "$value": "{font.family.ui}",       "$type": "fontFamily" },
+      "size":     { "$value": "{font.size.md}",         "$type": "dimension" },
+      "weight":   { "$value": "{font.weight.regular}",  "$type": "fontWeight" },
+      "leading":  { "$value": "{font.leading.normal}",  "$type": "number" },
+      "tracking": { "$value": "{font.tracking.normal}", "$type": "dimension" }
+    },
+    "reading": {
+      "family":   { "$value": "{font.family.prose}",    "$type": "fontFamily" },
+      "size":     { "$value": "{font.size.lg}",         "$type": "dimension" },
+      "weight":   { "$value": "{font.weight.regular}",  "$type": "fontWeight" },
+      "leading":  { "$value": "{font.leading.reading}", "$type": "number" },
+      "tracking": { "$value": "{font.tracking.normal}", "$type": "dimension" }
+    },
+    "label": {
+      "family":   { "$value": "{font.family.ui}",       "$type": "fontFamily" },
+      "size":     { "$value": "{font.size.sm}",         "$type": "dimension" },
+      "weight":   { "$value": "{font.weight.medium}",   "$type": "fontWeight" },
+      "leading":  { "$value": "{font.leading.snug}",    "$type": "number" },
+      "tracking": { "$value": "{font.tracking.wide}",   "$type": "dimension" }
+    },
+    "caption": {
+      "family":   { "$value": "{font.family.ui}",       "$type": "fontFamily" },
+      "size":     { "$value": "{font.size.xs}",         "$type": "dimension" },
+      "weight":   { "$value": "{font.weight.regular}",  "$type": "fontWeight" },
+      "leading":  { "$value": "{font.leading.normal}",  "$type": "number" },
+      "tracking": { "$value": "{font.tracking.wide}",   "$type": "dimension" }
+    },
+    "code": {
+      "family":   { "$value": "{font.family.mono}",     "$type": "fontFamily" },
+      "size":     { "$value": "{font.size.sm}",         "$type": "dimension" },
+      "weight":   { "$value": "{font.weight.regular}",  "$type": "fontWeight" },
+      "leading":  { "$value": "{font.leading.normal}",  "$type": "number" },
+      "tracking": { "$value": "{font.tracking.normal}", "$type": "dimension" }
+    }
+  },
+
+  "measure": {
+    "$type": "dimension",
+    "$description": "Maximum line lengths.",
+    "prose": { "$value": "68ch", "$description": "Serif reading text." },
+    "ui":    { "$value": "60ch" },
+    "page":  { "$value": "72rem" }
+  },
+
+  "space": {
+    "$type": "dimension",
+    "$description": "4px base unit.",
+    "0":  { "$value": "0" },
+    "1":  { "$value": "0.25rem" },
+    "2":  { "$value": "0.5rem" },
+    "3":  { "$value": "0.75rem" },
+    "4":  { "$value": "1rem" },
+    "5":  { "$value": "1.25rem" },
+    "6":  { "$value": "1.5rem" },
+    "8":  { "$value": "2rem" },
+    "10": { "$value": "2.5rem" },
+    "12": { "$value": "3rem" },
+    "16": { "$value": "4rem" },
+    "20": { "$value": "5rem" },
+    "24": { "$value": "6rem" },
+    "32": { "$value": "8rem" }
+  },
+
+  "radius": {
+    "$type": "dimension",
+    "$description": "Radius encodes hierarchy: small controls are tight, containers are softer, status chips are round.",
+    "none": { "$value": "0" },
+    "sm":   { "$value": "0.25rem",  "$description": "Inputs, code spans, table cells." },
+    "md":   { "$value": "0.5rem",   "$description": "Buttons, menus." },
+    "lg":   { "$value": "0.875rem", "$description": "Panels and manuscript cards." },
+    "xl":   { "$value": "1.5rem",   "$description": "Hero and image surfaces." },
+    "pill": { "$value": "999px",    "$description": "Status chips and tags." }
+  },
+
+  "border": {
+    "width": {
+      "$type": "dimension",
+      "hairline": { "$value": "1px" },
+      "thick":    { "$value": "2px" }
+    }
+  },
+
+  "shadow": {
+    "$type": "shadow",
+    "$description": "Borders do most of the work on dark surfaces. Reserve shadows for floating layers.",
+    "sm": { "$value": "0 1px 2px rgba(0, 0, 0, 0.35)" },
+    "md": { "$value": "0 6px 16px rgba(0, 0, 0, 0.40)" },
+    "lg": { "$value": "0 18px 48px rgba(0, 0, 0, 0.50)" }
+  },
+
+  "motion": {
+    "duration": {
+      "$type": "duration",
+      "instant": { "$value": "80ms" },
+      "fast":    { "$value": "140ms" },
+      "base":    { "$value": "220ms" },
+      "slow":    { "$value": "360ms" }
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "standard":   { "$value": "cubic-bezier(0.2, 0, 0, 1)" },
+      "decelerate": { "$value": "cubic-bezier(0, 0, 0, 1)" },
+      "accelerate": { "$value": "cubic-bezier(0.3, 0, 1, 1)" }
+    }
+  },
+
+  "z": {
+    "$type": "number",
+    "base":     { "$value": 0 },
+    "sticky":   { "$value": 100 },
+    "dropdown": { "$value": 200 },
+    "overlay":  { "$value": 300 },
+    "modal":    { "$value": 400 },
+    "toast":    { "$value": 500 }
+  },
+
+  "breakpoint": {
+    "$type": "dimension",
+    "sm": { "$value": "40rem" },
+    "md": { "$value": "48rem" },
+    "lg": { "$value": "64rem" },
+    "xl": { "$value": "80rem" }
+  }
+}

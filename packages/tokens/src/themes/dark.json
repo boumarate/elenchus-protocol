@@ -1,0 +1,70 @@
+{
+  "$description": "Dark theme (default). Semantic color tokens: components consume these, never palette.* directly. Key set must match light.json exactly; the build fails on drift.",
+  "color": {
+    "$type": "color",
+    "bg": {
+      "base":    { "$value": "{palette.ink.0}",   "$description": "Page background." },
+      "subtle":  { "$value": "{palette.ink.50}",  "$description": "Alternate bands, sidebars." },
+      "raised":  { "$value": "{palette.ink.100}", "$description": "Cards, panels, manuscript rows." },
+      "overlay": { "$value": "{palette.ink.200}", "$description": "Menus, popovers, dialogs." },
+      "inverse": { "$value": "{palette.bone.50}", "$description": "Surfaces that flip the theme, e.g. a light callout in dark mode." },
+      "scrim":   { "$value": "#070906CC",         "$description": "Backdrop behind modals." }
+    },
+    "border": {
+      "subtle":  { "$value": "{palette.ink.200}" },
+      "default": { "$value": "{palette.ink.300}" },
+      "strong":  { "$value": "{palette.ink.500}" }
+    },
+    "text": {
+      "primary":   { "$value": "{palette.ink.950}" },
+      "secondary": { "$value": "{palette.ink.800}" },
+      "tertiary":  { "$value": "{palette.ink.700}" },
+      "disabled":  { "$value": "{palette.ink.500}" },
+      "inverse":   { "$value": "{palette.ink.0}" },
+      "link":      { "$value": "{palette.verdigris.400}" }
+    },
+    "accent": {
+      "default":   { "$value": "{palette.verdigris.400}" },
+      "hover":     { "$value": "{palette.verdigris.300}" },
+      "active":    { "$value": "{palette.verdigris.500}" },
+      "subtle":    { "$value": "{palette.verdigris.900}", "$description": "Tinted fill behind accent text or icons." },
+      "on-accent": { "$value": "{palette.ink.0}",         "$description": "Text on an accent fill." }
+    },
+    "danger": {
+      "default":   { "$value": "{palette.madder.400}" },
+      "hover":     { "$value": "{palette.madder.300}" },
+      "on-danger": { "$value": "{palette.ink.0}" }
+    },
+    "focus": {
+      "ring": { "$value": "{palette.verdigris.300}", "$description": "Keyboard focus outline. Always visible." }
+    },
+    "status": {
+      "$description": "Claim lifecycle. Always pair color with a text label or icon; color alone is not enough.",
+      "pending": {
+        "fg":     { "$value": "{palette.ink.700}" },
+        "bg":     { "$value": "{palette.ink.200}" },
+        "border": { "$value": "{palette.ink.400}" }
+      },
+      "examining": {
+        "fg":     { "$value": "{palette.cobalt.400}" },
+        "bg":     { "$value": "#6EA8FE1F" },
+        "border": { "$value": "#6EA8FE55" }
+      },
+      "corroborated": {
+        "fg":     { "$value": "{palette.verdigris.400}" },
+        "bg":     { "$value": "#5FCBA41F" },
+        "border": { "$value": "#5FCBA455" }
+      },
+      "contested": {
+        "fg":     { "$value": "{palette.amber.400}" },
+        "bg":     { "$value": "#E8B84A1F" },
+        "border": { "$value": "#E8B84A55" }
+      },
+      "refuted": {
+        "fg":     { "$value": "{palette.madder.400}" },
+        "bg":     { "$value": "#F0605F1F" },
+        "border": { "$value": "#F0605F55" }
+      }
+    }
+  }
+}

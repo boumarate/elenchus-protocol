@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elenchus.example/schemas/review.schema.json",
+  "title": "Review",
+  "description": "A structured peer review. See docs/review-rubric.md for scoring guidance.",
+  "type": "object",
+  "required": ["claimId", "examiner", "scores", "recommendation", "summary", "majorConcerns"],
+  "additionalProperties": false,
+  "properties": {
+    "claimId": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "examiner": { "type": "string", "pattern": "^G[A-Z2-7]{55}$" },
+    "scores": {
+      "type": "object",
+      "required": ["novelty", "methodology", "reproducibility", "clarity"],
+      "additionalProperties": false,
+      "properties": {
+        "novelty": { "$ref": "#/$defs/score" },
+        "methodology": { "$ref": "#/$defs/score" },
+        "reproducibility": { "$ref": "#/$defs/score" },
+        "clarity": { "$ref": "#/$defs/score" }
+      }
+    },
+    "recommendation": {
+      "enum": ["corroborate", "corroborate-with-revisions", "contest", "refute"]
+    },
+    "summary": { "type": "string", "minLength": 100, "maxLength": 3000 },
+    "majorConcerns": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/point" }
+    },
+    "minorConcerns": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/point" }
+    },
+    "reproductionAttempted": {
+      "type": "boolean",
+      "description": "True if the examiner re-ran analysis or code. Weighted more heavily in quality voting."
+    },
+    "confidence": { "enum": ["low", "medium", "high"] }
+  },
+  "$defs": {
+    "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "point": {
+      "type": "object",
+      "required": ["issue", "evidence"],
+      "additionalProperties": false,
+      "properties": {
+        "issue": { "type": "string" },
+        "evidence": { "type": "string", "description": "Where in the manuscript or data, and why it matters." },
+        "suggestion": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Elenchus tokens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Newsreader:opsz,wght@6..72,400&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./dist/tokens.css">
+<style>
+  body { margin: 0; background: var(--elx-color-bg-base); color: var(--elx-color-text-primary);
+    font: var(--elx-font-weight-regular) var(--elx-font-size-md)/var(--elx-font-leading-normal) var(--elx-font-family-ui); }
+  main { max-width: var(--elx-measure-page); margin: 0 auto; padding: var(--elx-space-12) var(--elx-space-6); display: grid; gap: var(--elx-space-12); }
+  h1 { font: var(--elx-text-display-weight) var(--elx-text-display-size)/var(--elx-text-display-leading) var(--elx-text-display-family); letter-spacing: var(--elx-text-display-tracking); margin: 0; }
+  h2 { font: var(--elx-text-h3-weight) var(--elx-text-h3-size)/var(--elx-text-h3-leading) var(--elx-text-h3-family); margin: 0 0 var(--elx-space-4); }
+  p.reading { font: var(--elx-text-reading-weight) var(--elx-text-reading-size)/var(--elx-text-reading-leading) var(--elx-text-reading-family); max-width: var(--elx-measure-prose); color: var(--elx-color-text-secondary); margin: var(--elx-space-4) 0 0; }
+  code, .mono { font-family: var(--elx-font-family-mono); font-size: var(--elx-font-size-sm); color: var(--elx-color-text-tertiary); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--elx-space-3); }
+  .swatch { width: 5.5rem; border: 1px solid var(--elx-color-border-default); border-radius: var(--elx-radius-md); overflow: hidden; background: var(--elx-color-bg-raised); }
+  .swatch i { display: block; height: 3rem; }
+  .swatch span { display: block; padding: var(--elx-space-2); font: var(--elx-text-caption-weight) var(--elx-text-caption-size)/1.3 var(--elx-font-family-mono); color: var(--elx-color-text-tertiary); }
+  .panel { background: var(--elx-color-bg-raised); border: 1px solid var(--elx-color-border-subtle); border-radius: var(--elx-radius-lg); padding: var(--elx-space-6); }
+  .chip { display: inline-flex; align-items: center; gap: var(--elx-space-2); padding: var(--elx-space-1) var(--elx-space-3); border-radius: var(--elx-radius-pill); border: 1px solid; font: var(--elx-text-label-weight) var(--elx-text-label-size)/1 var(--elx-text-label-family); letter-spacing: var(--elx-text-label-tracking); }
+  .chip::before { content: ''; width: .5rem; height: .5rem; border-radius: 50%; background: currentColor; }
+  .btn { font: var(--elx-text-label-weight) var(--elx-text-body-size)/1 var(--elx-font-family-ui); padding: var(--elx-space-3) var(--elx-space-5); border-radius: var(--elx-radius-md); border: 1px solid transparent; cursor: pointer;
+    background: var(--elx-color-accent-default); color: var(--elx-color-accent-on-accent); transition: background var(--elx-motion-duration-fast) var(--elx-motion-easing-standard); }
+  .btn:hover { background: var(--elx-color-accent-hover); }
+  .btn.ghost { background: transparent; color: var(--elx-color-text-primary); border-color: var(--elx-color-border-strong); }
+  .btn.ghost:hover { background: var(--elx-color-bg-overlay); }
+  .btn:focus-visible { outline: var(--elx-border-width-thick) solid var(--elx-color-focus-ring); outline-offset: 2px; }
+  .toggle { justify-self: start; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Elenchus tokens</h1>
+    <p class="reading">A claim is registered, examined by reviewers who stake on their verdict, and either corroborated or refuted in the open.</p>
+  </header>
+
+  <button class="btn ghost toggle" id="toggle">Switch theme</button>
+
+  <section><h2>Palette</h2><div class="row" id="palette"></div></section>
+
+  <section>
+    <h2>Claim status</h2>
+    <div class="row" id="status"></div>
+  </section>
+
+  <section>
+    <h2>Manuscript card</h2>
+    <div class="panel" style="max-width: 36rem">
+      <div class="row" style="justify-content: space-between; align-items: center">
+        <span class="chip" style="color:var(--elx-color-status-examining-fg);background:var(--elx-color-status-examining-bg);border-color:var(--elx-color-status-examining-border)">Under examination</span>
+        <span class="mono">bafybeigdyrzt5…q4</span>
+      </div>
+      <p class="reading">Effect of intermittent fasting on circadian gene expression in adult mice.</p>
+      <div class="row" style="margin-top: var(--elx-space-6)">
+        <button class="btn">Claim a review</button>
+        <button class="btn ghost">View rubric</button>
+      </div>
+    </div>
+  </section>
+
+  <section><h2>Type</h2>
+    <div class="panel" style="display:grid;gap:var(--elx-space-3)" id="type"></div>
+  </section>
+</main>
+<script>
+  const tokens = { palette: ['ink','bone','verdigris','cobalt','amber','madder'] };
+  const css = getComputedStyle(document.documentElement);
+  const palette = document.getElementById('palette');
+  const names = [...document.styleSheets[0].cssRules[0].style].filter(n => n.startsWith('--elx-palette-'));
+  names.forEach(n => {
+    const el = document.createElement('div'); el.className = 'swatch';
+    el.innerHTML = `<i style="background:var(${n})"></i><span>${n.replace('--elx-palette-','')}</span>`;
+    palette.appendChild(el);
+  });
+  const status = document.getElementById('status');
+  [['pending','Pending'],['examining','Examining'],['corroborated','Corroborated'],['contested','Contested'],['refuted','Refuted']].forEach(([k,l]) => {
+    const c = document.createElement('span'); c.className = 'chip'; c.textContent = l;
+    c.style.cssText = `color:var(--elx-color-status-${k}-fg);background:var(--elx-color-status-${k}-bg);border-color:var(--elx-color-status-${k}-border)`;
+    status.appendChild(c);
+  });
+  const type = document.getElementById('type');
+  ['display','h1','h2','h3','body','reading','label','caption','code'].forEach(s => {
+    const d = document.createElement('div');
+    d.textContent = `${s}: The elenchus tests a claim by questioning it.`;
+    d.style.cssText = `font:var(--elx-text-${s}-weight) var(--elx-text-${s}-size)/var(--elx-text-${s}-leading) var(--elx-text-${s}-family);letter-spacing:var(--elx-text-${s}-tracking);overflow-wrap:anywhere`;
+    type.appendChild(d);
+  });
+  document.getElementById('toggle').onclick = () => {
+    const r = document.documentElement;
+    r.dataset.theme = (r.dataset.theme || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')) === 'dark' ? 'light' : 'dark';
+  };
+</script>
+</body>
+</html>

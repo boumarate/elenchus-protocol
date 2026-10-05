@@ -1,0 +1,26 @@
+{
+  "name": "@elenchus-protocol/tokens",
+  "version": "0.1.0",
+  "description": "Design tokens for Elenchus Protocol: DTCG source, CSS variables, TypeScript, Tailwind preset.",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    "./css": "./dist/tokens.css",
+    "./ts": "./dist/tokens.ts",
+    "./json": "./dist/tokens.json",
+    "./tailwind": "./dist/tailwind-preset.cjs",
+    "./src/*": "./src/*"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs && node scripts/contrast.mjs",
+    "check": "node scripts/build.mjs && git diff --exit-code dist || (echo 'dist/ is stale: run pnpm build and commit' && exit 1)",
+    "contrast": "node scripts/contrast.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

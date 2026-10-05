@@ -1,0 +1,16 @@
+{
+  "name": "elenchus-protocol",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Open peer review, rewarded. Soroban contracts, SDK, indexer, and web app.",
+  "license": "MIT",
+  "packageManager": "pnpm@12.9.1",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "check": "pnpm -r --if-present check",
+    "dev:web": "pnpm --filter @elenchus-protocol/web dev",
+    "dev:indexer": "pnpm --filter @elenchus-protocol/indexer dev"
+  }
+}

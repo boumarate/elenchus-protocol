@@ -1,0 +1,64 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--elx-color-bg-base);
+  color: var(--elx-color-text-primary);
+  font: var(--elx-text-body-weight) var(--elx-text-body-size) / var(--elx-text-body-leading) var(--elx-text-body-family);
+}
+
+.page {
+  max-width: var(--elx-measure-page);
+  margin: 0 auto;
+  padding: var(--elx-space-12) var(--elx-space-6);
+  display: grid;
+  gap: var(--elx-space-12);
+}
+
+h1 {
+  margin: 0;
+  font: var(--elx-text-display-weight) var(--elx-text-display-size) / var(--elx-text-display-leading) var(--elx-text-display-family);
+  letter-spacing: var(--elx-text-display-tracking);
+}
+
+h2 {
+  margin: 0 0 var(--elx-space-4);
+  font: var(--elx-text-h3-weight) var(--elx-text-h3-size) / var(--elx-text-h3-leading) var(--elx-text-h3-family);
+}
+
+.reading {
+  max-width: var(--elx-measure-prose);
+  margin: var(--elx-space-3) 0 0;
+  color: var(--elx-color-text-secondary);
+  font: var(--elx-text-reading-weight) var(--elx-text-reading-size) / var(--elx-text-reading-leading) var(--elx-text-reading-family);
+}
+
+code {
+  font: var(--elx-text-code-weight) var(--elx-text-code-size) / 1 var(--elx-text-code-family);
+  color: var(--elx-color-text-tertiary);
+}
+
+.claims { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--elx-space-4); }
+
+.card {
+  background: var(--elx-color-bg-raised);
+  border: var(--elx-border-width-hairline) solid var(--elx-color-border-subtle);
+  border-radius: var(--elx-radius-lg);
+  padding: var(--elx-space-6);
+}
+
+.card-top { display: flex; flex-wrap: wrap; gap: var(--elx-space-3); align-items: center; justify-content: space-between; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--elx-space-2);
+  padding: var(--elx-space-1) var(--elx-space-3);
+  border: var(--elx-border-width-hairline) solid;
+  border-radius: var(--elx-radius-pill);
+  font: var(--elx-text-label-weight) var(--elx-text-label-size) / 1 var(--elx-text-label-family);
+  letter-spacing: var(--elx-text-label-tracking);
+}
+.chip::before { content: ''; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: currentColor; }
+
+:focus-visible { outline: var(--elx-border-width-thick) solid var(--elx-color-focus-ring); outline-offset: 2px; }

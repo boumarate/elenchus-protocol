@@ -1,0 +1,69 @@
+{
+  "$description": "Light theme. Same semantic keys as dark.json. Foreground colors are chosen for at least 4.5:1 contrast against color.bg.base.",
+  "color": {
+    "$type": "color",
+    "bg": {
+      "base":    { "$value": "{palette.bone.50}" },
+      "subtle":  { "$value": "{palette.bone.100}" },
+      "raised":  { "$value": "#FFFFFF" },
+      "overlay": { "$value": "#FFFFFF" },
+      "inverse": { "$value": "{palette.ink.0}" },
+      "scrim":   { "$value": "#171C1599" }
+    },
+    "border": {
+      "subtle":  { "$value": "{palette.bone.200}" },
+      "default": { "$value": "{palette.bone.300}" },
+      "strong":  { "$value": "{palette.bone.400}" }
+    },
+    "text": {
+      "primary":   { "$value": "{palette.bone.900}" },
+      "secondary": { "$value": "{palette.bone.800}" },
+      "tertiary":  { "$value": "{palette.bone.600}" },
+      "disabled":  { "$value": "{palette.bone.400}" },
+      "inverse":   { "$value": "{palette.bone.50}" },
+      "link":      { "$value": "{palette.verdigris.700}" }
+    },
+    "accent": {
+      "default":   { "$value": "{palette.verdigris.700}" },
+      "hover":     { "$value": "{palette.verdigris.900}" },
+      "active":    { "$value": "{palette.verdigris.900}" },
+      "subtle":    { "$value": "#3DB38A24" },
+      "on-accent": { "$value": "{palette.bone.50}" }
+    },
+    "danger": {
+      "default":   { "$value": "{palette.madder.600}" },
+      "hover":     { "$value": "{palette.madder.800}" },
+      "on-danger": { "$value": "{palette.bone.50}" }
+    },
+    "focus": {
+      "ring": { "$value": "{palette.verdigris.700}" }
+    },
+    "status": {
+      "pending": {
+        "fg":     { "$value": "{palette.bone.600}" },
+        "bg":     { "$value": "{palette.bone.200}" },
+        "border": { "$value": "{palette.bone.300}" }
+      },
+      "examining": {
+        "fg":     { "$value": "{palette.cobalt.600}" },
+        "bg":     { "$value": "#2F5DB81A" },
+        "border": { "$value": "#2F5DB855" }
+      },
+      "corroborated": {
+        "fg":     { "$value": "{palette.verdigris.700}" },
+        "bg":     { "$value": "#1F70581A" },
+        "border": { "$value": "#1F705855" }
+      },
+      "contested": {
+        "fg":     { "$value": "{palette.amber.600}" },
+        "bg":     { "$value": "#8F5F081A" },
+        "border": { "$value": "#8F5F0855" }
+      },
+      "refuted": {
+        "fg":     { "$value": "{palette.madder.600}" },
+        "bg":     { "$value": "#B832321A" },
+        "border": { "$value": "#B8323255" }
+      }
+    }
+  }
+}
