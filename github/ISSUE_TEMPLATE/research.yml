@@ -1,0 +1,26 @@
+name: Research or design question
+description: A protocol design question, threat, or mechanism worth investigating
+labels: ["area:research"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: State the question precisely.
+    validations: { required: true }
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters
+      description: What goes wrong if we get this wrong? Link docs/threat-model.md rows if relevant.
+    validations: { required: true }
+  - type: textarea
+    id: prior
+    attributes:
+      label: Prior art
+      description: Papers, protocols, or systems that address something similar.
+  - type: textarea
+    id: output
+    attributes:
+      label: Expected output
+      description: A short write-up, an ADR, a simulation, a prototype?

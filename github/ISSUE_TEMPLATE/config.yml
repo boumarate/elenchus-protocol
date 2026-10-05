@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Design discussion
+    url: https://github.com/elenchus-hq/elenchus-protocol/discussions/categories/design
+    about: Protocol-level questions (reputation, anonymity, bounty funding) start in Discussions.
+  - name: Report a security vulnerability
+    url: https://github.com/elenchus-hq/elenchus-protocol/security/advisories/new
+    about: Please report vulnerabilities privately, not in a public issue.

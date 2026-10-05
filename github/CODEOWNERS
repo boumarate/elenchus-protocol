@@ -1,0 +1,6 @@
+# Replace @Mona-i with your handle or a team (e.g. @elenchus-hq/maintainers).
+# Reviews are requested automatically from the matching owners.
+*                  @Mona-i
+/contracts/        @Mona-i
+/docs/             @Mona-i
+/.github/          @Mona-i
